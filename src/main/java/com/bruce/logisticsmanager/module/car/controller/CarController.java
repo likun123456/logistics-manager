@@ -14,4 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/car")
 @Api(tags = "车辆管理")
 public class CarController {
+
+
 }

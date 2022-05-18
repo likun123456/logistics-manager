@@ -1,5 +1,8 @@
 package com.bruce.logisticsmanager.common.enums;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * <p>description<p/>
  *
@@ -7,6 +10,7 @@ package com.bruce.logisticsmanager.common.enums;
  * @date： 2022/5/6 10:54
  */
 public enum GenderEnum {
+    NO(-1, "未知"),
     MAN(0, "男"),
     WOMAN(1, "女");
 
@@ -34,4 +38,9 @@ public enum GenderEnum {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static GenderEnum getEnumByCode(Integer integer) {
+        return Arrays.stream(GenderEnum.values()).filter(e -> Objects.equals(e.code, integer)).findFirst().orElse(GenderEnum.NO);
+    }
 }
+

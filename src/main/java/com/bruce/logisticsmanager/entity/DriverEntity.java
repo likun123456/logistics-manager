@@ -22,4 +22,6 @@ public class DriverEntity extends BaseEntity{
     private String name;
 
     private Integer gender;
+
+    private String mobile;
 }

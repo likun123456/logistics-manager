@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * <p>description<p/>
  *
@@ -30,8 +32,9 @@ public class AddressEntity extends BaseEntity{
 
     private String mobile;
 
-    private String  call;
+    private String nickname;
 
     @TableField("user_id")
     private String userId;
+
 }

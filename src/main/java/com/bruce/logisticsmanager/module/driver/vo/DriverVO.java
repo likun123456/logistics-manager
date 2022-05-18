@@ -1,4 +1,4 @@
-package com.bruce.logisticsmanager.module.address.vo;
+package com.bruce.logisticsmanager.module.driver.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -12,29 +12,23 @@ import java.time.LocalDateTime;
  * <p>description<p/>
  *
  * @author likun
- * @date： 2022/5/17 13:50
+ * @date： 2022/5/18 16:22
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressVO implements Serializable {
+public class DriverVO implements Serializable {
 
     private Long id;
 
-    private String province;
+    private String name;
 
-    private String city;
+    private Integer gender;
 
-    private String street;
-
-    private String detail;
+    private String genderName;
 
     private String mobile;
 
-    private String nickname;
-
-    private String userId;
-
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 }

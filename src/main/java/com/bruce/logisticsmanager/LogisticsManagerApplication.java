@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.bruce.logisticsmanager.module")
+@MapperScan("com.bruce.logisticsmanager.module.*.mapper")
 public class LogisticsManagerApplication {
 
     public static void main(String[] args) {

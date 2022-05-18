@@ -4,14 +4,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.bruce.logisticsmanager.common.CommonResult;
 import com.bruce.logisticsmanager.common.utils.JwtTokenUtil;
 import com.bruce.logisticsmanager.module.user.service.IUserService;
+import com.bruce.logisticsmanager.module.user.vo.UserInfoVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -35,6 +33,12 @@ public class UserController {
     public CommonResult<String> login(@RequestBody JSONObject jsonObject) {
         String token = iUserService.login(jsonObject);
         return CommonResult.success(token);
+    }
+
+    @GetMapping("/info")
+    public CommonResult<UserInfoVO> getUserInfo(@RequestParam("token") String token) {
+        UserInfoVO userInfo = iUserService.getUserInfo(token);
+        return CommonResult.success(userInfo);
     }
 
     public static void main(String[] args) {

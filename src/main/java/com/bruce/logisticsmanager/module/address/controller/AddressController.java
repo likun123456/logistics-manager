@@ -1,5 +1,6 @@
 package com.bruce.logisticsmanager.module.address.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.bruce.logisticsmanager.common.CommonResult;
 import com.bruce.logisticsmanager.module.address.dto.AddressDTO;
 import com.bruce.logisticsmanager.module.address.service.IAddressService;
@@ -43,5 +44,12 @@ public class AddressController {
     @ApiOperation("删除")
     public CommonResult<Boolean> deleteById(@RequestParam("id") Long id) {
         return CommonResult.success(iAddressService.deleteById(id));
+    }
+
+    @PostMapping("/pageByCondition")
+    @ApiOperation("分页查询")
+    public CommonResult<IPage<AddressVO>> pageByCondition(@RequestBody AddressDTO dto) {
+        IPage<AddressVO> page = iAddressService.pageByCondition(dto);
+        return CommonResult.success(page);
     }
 }

@@ -30,7 +30,7 @@ public class AddressDTO extends SearchDTO implements Serializable {
 
     private String mobile;
 
-    private String call;
+    private String nickname;
 
     private String userId;
 }

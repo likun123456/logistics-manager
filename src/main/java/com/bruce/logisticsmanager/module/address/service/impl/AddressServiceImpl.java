@@ -60,8 +60,9 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, AddressEntity
         AddressEntity addressEntity = addressDtoConvertor.dto2Po(dto);
         PageDTO<AddressEntity> pageDTO = new PageDTO<>(dto.getNowPage(), dto.getPageSize());
         LambdaQueryWrapper<AddressEntity> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.orderByDesc(AddressEntity::getCreateTime);
+        lambdaQueryWrapper.eq(AddressEntity::getUserId, dto.getUserId());
         PageDTO<AddressEntity> page = super.page(pageDTO, lambdaQueryWrapper);
-
         return page.convert(p -> addressVoConvertor.po2Vo(p));
     }
 }

@@ -1,4 +1,4 @@
-package com.bruce.logisticsmanager.vo;
+package com.bruce.logisticsmanager.module.user.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,18 +10,17 @@ import java.io.Serializable;
  * <p>description<p/>
  *
  * @author likun
- * @date： 2022/5/6 15:48
+ * @date： 2022/5/18 10:43
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginUserVO implements Serializable {
+public class UserInfoVO implements Serializable {
 
     private Long id;
 
-    private String username;
+    private String name;
 
-    private String password;
+    private int[] roles;
 
-    private RoleVO role;
 }
