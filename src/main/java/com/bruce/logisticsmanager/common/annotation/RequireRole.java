@@ -1,5 +1,7 @@
 package com.bruce.logisticsmanager.common.annotation;
 
+import com.bruce.logisticsmanager.common.enums.RoleEnum;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,5 +13,7 @@ import java.lang.annotation.*;
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RequireAdmin {
+public @interface RequireRole {
+
+    RoleEnum[] roleEnum() default RoleEnum.USER;
 }

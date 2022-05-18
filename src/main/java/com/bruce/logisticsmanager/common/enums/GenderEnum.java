@@ -10,7 +10,7 @@ import java.util.Objects;
  * @date： 2022/5/6 10:54
  */
 public enum GenderEnum {
-    NO(-1, "未知"),
+    NO(-1, "外星人"),
     MAN(0, "男"),
     WOMAN(1, "女");
 

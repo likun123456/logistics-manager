@@ -40,6 +40,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration registration = registry.addInterceptor(this.getLoginInterceptor());
         registration.addPathPatterns("/**");
+        registration.excludePathPatterns(LoginInterceptor.LOGIN_URL);
         registration.excludePathPatterns("**/swagger-resources/**", "/swagger-ui/**", "/swagger-resources/**",
                 "/swagger-ui.html");
     }

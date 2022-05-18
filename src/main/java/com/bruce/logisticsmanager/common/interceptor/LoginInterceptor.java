@@ -17,7 +17,10 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 //import com.bruce.logisticsmanager.service.IUserService;
 //import com.bruce.logisticsmanager.vo.LoginUserVO;
 //import com.bruce.logisticsmanager.vo.RoleVO;
+import com.bruce.logisticsmanager.common.enums.ResultEnum;
+import com.bruce.logisticsmanager.common.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -39,19 +42,18 @@ import java.util.Optional;
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 
-    private static final String LOGIN_URL = "login";
+    public static final String LOGIN_URL = "/user/login";
 
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestURI = request.getRequestURI();
+        log.info("URI:{}", requestURI);
+        String token = request.getParameter("token");
+        if (StringUtils.isBlank(token)) {
+            throw new BizException(ResultEnum.NO_LOGIN);
+        }
 
-        // 从 http 请求头中取出 token
-//        String token = request.getHeader("token");
-//        if (StringUtils.isBlank(token)) {
-//            throw new BizException(ResultEnum.NO_LOGIN);
-//        }
-//
 //        HandlerMethod handlerMethod = (HandlerMethod) handler;
 //        Method method = handlerMethod.getMethod();
 //
