@@ -1,4 +1,4 @@
-package com.bruce.logisticsmanager.module.driver.dto;
+package com.bruce.logisticsmanager.module.progress.dto;
 
 import com.bruce.logisticsmanager.dto.SearchDTO;
 import lombok.AllArgsConstructor;
@@ -13,19 +13,19 @@ import java.util.Date;
  * <p>description<p/>
  *
  * @author likun
- * @date： 2022/5/18 16:17
+ * @date： 2022/5/24 14:04
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DriverDTO extends SearchDTO implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class ProgressDTO extends SearchDTO implements Serializable {
 
     private Long id;
 
-    private String name;
+    private Long orderId;
 
-    private Integer gender;
+    private Long siteId;
 
-    private String mobile;
+    private Date lastTime;
 }
